@@ -1,0 +1,13 @@
+{
+  "name": "server1",
+  "version": "1.0.0",
+  "description": "A simple node server app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
