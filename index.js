@@ -47,8 +47,8 @@ const server = http.createServer((request, response) =>
 
 if (require.main === module)
 {
-    server.listen(8046);
-    console.log("Listening on port 8046");
+    server.listen(8080);
+    console.log("Listening on port 8080");
 }
 
 module.exports = server;
