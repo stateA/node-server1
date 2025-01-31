@@ -1,23 +1,23 @@
 steps:
-  - name: 'eu.gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/$PROJECT_ID/node-server1', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/node-server1', '.']
 
-  - name: 'eu.gcr.io/cloud-builders/docker'
-    args: ['push', 'eu.gcr.io/$PROJECT_ID/node-server1']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/node-server1']
 
-  - name: 'eu.gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
       - run
       - deploy
       - node-server1
-      - --image=eu.gcr.io/$PROJECT_ID/node-server1
+      - --image=gcr.io/$PROJECT_ID/node-server1
       - --platform=managed
       - --region=europe-west1
       - --allow-unauthenticated
 
 images:
-  - eu.gcr.io/$PROJECT_ID/node-server1
+  - gcr.io/$PROJECT_ID/node-server1
 
 options:
   logging: CLOUD_LOGGING_ONLY
