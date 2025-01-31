@@ -4,7 +4,7 @@ const server = require('./index');
 
 function testServer() {
   return new Promise((resolve, reject) => {
-    http.get('http://localhost:8046/hello', (res) => {
+    http.get('http://localhost:8080/hello', (res) => {
       let data = '';
 
       // Read response data
@@ -26,7 +26,7 @@ function testServer() {
   });
 }
 
-server.listen(8046, async () => {
+server.listen(8080, async () => {
   try {
     await testServer();
     server.close();
