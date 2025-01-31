@@ -16,6 +16,9 @@ steps:
       - --region=europe-west1
       - --allow-unauthenticated
 
+  - name: 'curlimages/curl'
+    args: ['https://node-server1-922023581852.europe-west1.run.app']
+
 images:
   - europe-docker.pkg.dev/$PROJECT_ID/my-training-repo/node-server1
 
