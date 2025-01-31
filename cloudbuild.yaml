@@ -1,23 +1,23 @@
 steps:
-  - name: 'my-training-repo/cloud-builders/docker'
-    args: ['build', '-t', 'my-training-repo/$PROJECT_ID/node-server1', '.']
+  - name: 'my-training-repo'
+    args: ['build', '-t', 'europe-west1-docker.pkg.dev/$PROJECT_ID/my-training-repo/node-server1', '.']
 
   - name: 'my-training-repo/cloud-builders/docker'
-    args: ['push', 'my-training-repo/$PROJECT_ID/node-server1']
+    args: ['push', 'europe-west1-docker.pkg.dev/$PROJECT_ID/my-training-repo/node-server1']
 
-  - name: 'my-training-repo/google.com/cloudsdktool/cloud-sdk'
+  - name: 'my-training-repo-gcloudsdk'
     entrypoint: gcloud
     args:
       - run
       - deploy
       - node-server1
-      - --image=my-training-repo/$PROJECT_ID/node-server1
+      - --image=europe-west1-docker.pkg.dev/$PROJECT_ID/my-training-repo/node-server1
       - --platform=managed
       - --region=europe-west1
       - --allow-unauthenticated
 
 images:
-  - my-training-repo/$PROJECT_ID/node-server1
+  - europe-west1-docker.pkg.dev/$PROJECT_ID/my-training-repo/node-server1
 
 options:
   logging: CLOUD_LOGGING_ONLY
